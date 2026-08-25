@@ -4,7 +4,29 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>COURTFOLIO — Where the game becomes a lifestyle</title>
-  <link rel="stylesheet" href="css/style.css">
+  <meta name="description" content="테니스 코트, 여행, 스타일, 굿즈, 대회, 플레이를 큐레이션하는 프리미엄 콘텐츠">
+  <style>
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css");
+:root{--color-bg:#fff;--color-text:#1a1a1a;--color-text-light:#666;--color-border:#eaeaea;--font-main:"Pretendard",-apple-system,BlinkMacSystemFont,system-ui,sans-serif;--max-width:1280px;--nav-height:72px}
+*{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}body{font-family:var(--font-main);background:var(--color-bg);color:var(--color-text);line-height:1.6;-webkit-font-smoothing:antialiased}a{text-decoration:none;color:inherit;transition:opacity .2s}a:hover{opacity:.7}img{max-width:100%;height:auto;display:block}
+.header{position:fixed;top:0;left:0;right:0;height:var(--nav-height);background:rgba(255,255,255,.95);backdrop-filter:blur(12px);border-bottom:1px solid var(--color-border);z-index:1000;display:flex;align-items:center}
+.header-inner{width:100%;max-width:var(--max-width);margin:0 auto;padding:0 40px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+.logo{font-size:20px;font-weight:500;letter-spacing:.12em;text-transform:uppercase}
+.nav{display:flex;align-items:center;gap:28px;flex-wrap:wrap}.nav a{font-size:13px;font-weight:500;letter-spacing:.08em;text-transform:uppercase}
+.nav-right{display:flex;align-items:center}.lang-toggle{font-size:12px;font-weight:500;letter-spacing:.06em;padding:6px 12px;border:1px solid var(--color-border);background:#fff;cursor:pointer;font-family:inherit}
+.hero{margin-top:var(--nav-height);position:relative;height:70vh;min-height:420px;overflow:hidden}
+.hero-image{width:100%;height:100%;object-fit:cover}.hero-overlay{position:absolute;inset:0;display:flex;align-items:center;justify-content:flex-end;padding:0 48px;background:linear-gradient(to right,rgba(0,0,0,.15),transparent)}
+.hero-text-box{background:rgba(255,255,255,.94);padding:48px 56px;max-width:440px}.hero-text-box h1{font-size:26px;font-weight:500;line-height:1.4}
+.section{max-width:var(--max-width);margin:0 auto;padding:88px 40px}.section-header{margin-bottom:48px}.section-header h2{font-size:24px;font-weight:500;margin-bottom:12px}.section-header .underline{width:36px;height:1px;background:#1a1a1a;margin-bottom:12px}.section-header p{font-size:14px;color:#666}
+.cards-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.card{display:block;transition:transform .25s}.card:hover{transform:translateY(-4px)}
+.card-image{width:100%;aspect-ratio:4/3;object-fit:cover;margin-bottom:16px;background:#f5f5f5}
+.card-title{font-size:13px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;margin-bottom:6px}
+.card-desc{font-size:13px;color:#666;margin-bottom:10px}.card-link{font-size:12px;letter-spacing:.04em}.card-link::after{content:" →"}
+.footer{border-top:1px solid #eaeaea;padding:48px 40px;margin-top:40px}.footer-inner{max-width:var(--max-width);margin:0 auto}.footer-logo{font-size:13px;letter-spacing:.1em;font-weight:500}.footer-copy{font-size:11px;color:#999;margin-top:8px}
+@media(max-width:900px){.cards-grid{grid-template-columns:repeat(2,1fr)}.nav{gap:16px}.hero-overlay{justify-content:center;padding:24px}.hero-text-box{padding:36px 40px}.header-inner{padding:0 20px}.section{padding:64px 20px}}
+@media(max-width:600px){.cards-grid{grid-template-columns:1fr}.hero{height:55vh}.hero-text-box h1{font-size:20px}.nav{gap:12px}.nav a{font-size:11px}}
+  </style>
 </head>
 <body>
   <header class="header">
@@ -18,25 +40,75 @@
         <a href="tournaments.html">TOURNAMENTS</a>
         <a href="play.html">PLAY</a>
       </nav>
-      <div class="nav-right"><button class="lang-toggle" id="langToggle">EN</button></div>
+      <div class="nav-right">
+        <button class="lang-toggle" id="langToggle">EN</button>
+      </div>
     </div>
   </header>
+
   <section class="hero">
-    <img class="hero-image" src="https://images.unsplash.com/photo-1554068865-24cecd4e34b8?auto=format&fit=crop&w=1600&q=80" alt="Tennis">
-    <div class="hero-overlay"><div class="hero-text-box"><h1>Where the game becomes a lifestyle</h1></div></div>
-  </section>
-  <section class="section">
-    <div class="section-header"><h2>Only at Courtfolio</h2><div class="underline"></div><p>사실 기반 큐레이션 — 코트 · 여행 · 스타일 · 굿즈 · 대회 · 플레이</p></div>
-    <div class="cards-grid">
-      <a href="courts.html" class="card"><img class="card-image" src="https://images.unsplash.com/photo-1622279457486-62dcc4a431d6?auto=format&fit=crop&w=800&q=80" alt=""><div class="card-title">COURTS</div><div class="card-desc">검증된 코트</div><span class="card-link">자세히 보기</span></a>
-      <a href="travel.html" class="card"><img class="card-image" src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80" alt=""><div class="card-title">TRAVEL</div><div class="card-desc">코트 있는 호텔·리조트</div><span class="card-link">자세히 보기</span></a>
-      <a href="style.html" class="card"><img class="card-image" src="https://images.unsplash.com/photo-1595435742656-5272d0b3fa82?auto=format&fit=crop&w=800&q=80" alt=""><div class="card-title">STYLE</div><div class="card-desc">선수 룩 & 브랜드</div><span class="card-link">자세히 보기</span></a>
-      <a href="goods.html" class="card"><img class="card-image" src="https://images.unsplash.com/photo-1556906781-9a412961d28c?auto=format&fit=crop&w=800&q=80" alt=""><div class="card-title">GOODS</div><div class="card-desc">신상품 · 인스타 셀러</div><span class="card-link">자세히 보기</span></a>
-      <a href="tournaments.html" class="card"><img class="card-image" src="https://images.unsplash.com/photo-1534438327276-8c4b97189c76?auto=format&fit=crop&w=800&q=80" alt=""><div class="card-title">TOURNAMENTS</div><div class="card-desc">그랜드슬램</div><span class="card-link">자세히 보기</span></a>
-      <a href="play.html" class="card"><img class="card-image" src="https://images.unsplash.com/photo-1622163642992-385a58b0f4c4?auto=format&fit=crop&w=800&q=80" alt=""><div class="card-title">PLAY</div><div class="card-desc">팁 · 레슨</div><span class="card-link">자세히 보기</span></a>
+    <img class="hero-image" src="https://images.unsplash.com/photo-1554068865-24cecd4e34b8?auto=format&fit=crop&w=1600&q=80" alt="Tennis court">
+    <div class="hero-overlay">
+      <div class="hero-text-box">
+        <h1>Where the game becomes a lifestyle</h1>
+      </div>
     </div>
   </section>
-  <footer class="footer"><div class="footer-inner"><div class="footer-logo">COURTFOLIO</div><div class="footer-copy">© 2026 Fact-based curation only.</div></div></footer>
-  <script src="js/main.js"></script>
+
+  <section class="section">
+    <div class="section-header">
+      <h2>Only at Courtfolio</h2>
+      <div class="underline"></div>
+      <p>코트 · 여행 · 스타일 · 굿즈 · 대회 · 플레이 — 사실 기반 큐레이션</p>
+    </div>
+    <div class="cards-grid">
+      <a href="courts.html" class="card">
+        <img class="card-image" src="https://images.unsplash.com/photo-1622279457486-62dcc4a431d6?auto=format&fit=crop&w=800&q=80" alt="Courts">
+        <div class="card-title">COURTS</div>
+        <div class="card-desc">검증된 코트와 시설 정보</div>
+        <span class="card-link">자세히 보기</span>
+      </a>
+      <a href="travel.html" class="card">
+        <img class="card-image" src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80" alt="Travel">
+        <div class="card-title">TRAVEL</div>
+        <div class="card-desc">코트 있는 호텔·리조트</div>
+        <span class="card-link">자세히 보기</span>
+      </a>
+      <a href="style.html" class="card">
+        <img class="card-image" src="https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=800&q=80" alt="Style">
+        <div class="card-title">STYLE</div>
+        <div class="card-desc">선수 룩 &amp; 브랜드 콜라보</div>
+        <span class="card-link">자세히 보기</span>
+      </a>
+      <a href="goods.html" class="card">
+        <img class="card-image" src="https://images.unsplash.com/photo-1556906781-9a412961d28c?auto=format&fit=crop&w=800&q=80" alt="Goods">
+        <div class="card-title">GOODS</div>
+        <div class="card-desc">신상품 · 브랜드 · 인스타 셀러</div>
+        <span class="card-link">자세히 보기</span>
+      </a>
+      <a href="tournaments.html" class="card">
+        <img class="card-image" src="https://images.unsplash.com/photo-1534438327276-8c4b97189c76?auto=format&fit=crop&w=800&q=80" alt="Tournaments">
+        <div class="card-title">TOURNAMENTS</div>
+        <div class="card-desc">그랜드슬램 &amp; 주요 대회</div>
+        <span class="card-link">자세히 보기</span>
+      </a>
+      <a href="play.html" class="card">
+        <img class="card-image" src="https://images.unsplash.com/photo-1622163642992-385a58b0f4c4?auto=format&fit=crop&w=800&q=80" alt="Play">
+        <div class="card-title">PLAY</div>
+        <div class="card-desc">팁 · 레슨 · 연습 가이드</div>
+        <span class="card-link">자세히 보기</span>
+      </a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-logo">COURTFOLIO</div>
+      <div class="footer-copy">© 2026 Courtfolio. Fact-based curation only.</div>
+    </div>
+  </footer>
+  <script>
+document.addEventListener('DOMContentLoaded',()=>{const t=document.getElementById('langToggle');if(t)t.addEventListener('click',()=>{t.textContent=t.textContent.trim()==='EN'?'KR':'EN'});});
+  </script>
 </body>
 </html>
