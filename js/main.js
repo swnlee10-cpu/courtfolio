@@ -1,3 +1,4 @@
 document.getElementById("langToggle")?.addEventListener("click", function() {
-  this.textContent = this.textContent === "EN" ? "KO" : "EN";
+  const btn = this;
+  btn.textContent = btn.textContent === "EN" ? "KO" : "EN";
 });
