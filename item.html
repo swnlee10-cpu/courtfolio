@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Detail — COURTFOLIO</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .detail-wrap{max-width:900px;margin:0 auto;padding:120px 40px 80px}
+    .detail-img{width:100%;aspect-ratio:16/9;object-fit:cover;margin-bottom:32px;background:#f5f5f5}
+    .detail-loc{font-size:14px;color:#666;margin-bottom:12px}
+    .detail-wrap h1{font-size:28px;font-weight:500;margin-bottom:20px}
+    .detail-body{font-size:15px;line-height:1.85;color:#333}
+    .detail-body p{margin-bottom:14px}
+    .detail-body ul{margin:12px 0 12px 20px}
+    .detail-body li{margin-bottom:6px}
+    .note{font-size:13px;color:#888;margin-top:24px;padding-top:16px;border-top:1px solid #eee}
+    .fee-box{background:#f8f8f8;padding:16px 20px;margin:16px 0;border-radius:4px}
+    .fee-box p{margin-bottom:6px}
+    .back-link{display:inline-block;margin-bottom:24px;font-size:13px;letter-spacing:.06em}
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="index.html" class="logo">COURTFOLIO</a>
+      <nav class="nav">
+        <a href="courts.html">COURTS</a>
+        <a href="travel.html">TRAVEL</a>
+        <a href="style.html">STYLE</a>
+        <a href="goods.html">GOODS</a>
+        <a href="tournaments.html">TOURNAMENTS</a>
+        <a href="play.html">PLAY</a>
+      </nav>
+      <div class="nav-right"><button class="lang-toggle" id="langToggle">EN</button></div>
+    </div>
+  </header>
+  <div class="detail-wrap" id="detail"><p style="color:#999">로딩 중...</p></div>
+  <footer class="footer"><div class="footer-inner"><div class="footer-logo">COURTFOLIO</div><div class="footer-copy">Fact-based curation only.</div></div></footer>
+  <script>
+  const DATA = {
+    courts: {
+      1: { title: "그랜드 하얏트 서울", loc: "서울 용산구 소월로 322 · 남산",
+        img: "https://images.unsplash.com/photo-1554068865-24cecd4e34b8?auto=format&fit=crop&w=1200&q=80",
+        body: "<p>남산 자락 <strong>야외 테니스 코트 3면</strong>. 2021년 재보수. 클럽 올림퍼스 회원·호텔 투숙객 전용.</p><div class='fee-box'><p><strong>요금 (공개 보도 기준)</strong></p><p>· 투숙객 평일 약 40,000원 / 주말 약 46,000원</p><p>· 예약 5일 전부터, 4시간 전 무료 취소</p></div><p>전문 강사 유료 레슨, 라켓 대여·공 판매. 탈의실·휴게 공간.</p><p class='note'>출처: 그랜드 하얏트 서울 보도. grandhyattseoul.com · 02-797-1234. 이미지는 스톡입니다.</p>" },
+      2: { title: "워커힐 테네즈 파크", loc: "서울 광진구 워커힐로",
+        img: "https://images.unsplash.com/photo-1595435742656-5272d0b3fa82?auto=format&fit=crop&w=1200&q=80",
+        body: "<p>한강·아차산 조망 <strong>국제 규격 하드 코트 2면</strong>, 지붕. 2024년 6월 리뉴얼.</p><div class='fee-box'><p><strong>코트 요금 (공식, 세금 포함)</strong></p><p>· 주중 80,000원 / 일·공휴일 100,000원</p><p>· 기준 4인, 추가 최대 2인 시간당 1만원/인</p><p>· 생수+볼 1캔 포함 / 라켓·테니스화 지참</p></div><p>3~11월 09–21시, 12~2월 09–18시. 사전 예약제.</p><p class='note'>walkerhill.com. 이미지는 스톡입니다.</p>" },
+      3: { title: "올림픽공원 테니스장", loc: "서울 송파구",
+        img: "https://images.unsplash.com/photo-1622163642992-385a58b0f4c4?auto=format&fit=crop&w=1200&q=80",
+        body: "<p>88올림픽 유산. 일반인 온라인 예약 가능 공공 코트.</p><p>메인코트·야외 하드·실내 하드 구성. 요금은 시간대·주야에 따라 다름.</p><p class='note'>공식 예약 사이트에서 최신 요금·일정 확인.</p>" },
+      4: { title: "Thanyapura Phuket", loc: "태국 푸켓",
+        img: "https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=1200&q=80",
+        body: "<p><strong>Plexicushion 6면</strong>(실내 4·야외 2). ITF 규격. 성인·주니어 코칭 패키지.</p><p class='note'>thanyapura-phuket.com</p>" }
+    },
+    travel: {
+      1: { title: "그랜드 하얏트 서울", loc: "서울 남산",
+        img: "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1200&q=80",
+        body: "<p>야외 코트 3면 + 호텔 스테이. 투숙객 코트 요금 평일 약 4만 / 주말 약 4.6만(보도 기준).</p><p>피트니스·사우나·레스토랑 연계. 투숙 또는 회원 자격 필요.</p><p class='note'>grandhyattseoul.com</p>" },
+      2: { title: "그랜드 워커힐 · 테네즈 파크", loc: "서울 광진구",
+        img: "https://images.unsplash.com/photo-1582719508461-905c673771fd?auto=format&fit=crop&w=1200&q=80",
+        body: "<p>지붕 하드 코트 2면. 주중 8만 / 일·공휴일 10만(기준 4인). Swing at TENNEZ PARK 등 패키지 운영 이력.</p><p class='note'>walkerhill.com</p>" },
+      3: { title: "Thanyapura Sports & Health Resort", loc: "푸켓",
+        img: "https://images.unsplash.com/photo-1540541338287-41700207dee6?auto=format&fit=crop&w=1200&q=80",
+        body: "<p>코트 6면 + 숙박·회복 시설. 성인 3·7·14일 테니스 패키지(프라이빗 레슨·마사지 등).</p><p class='note'>thanyapura-phuket.com</p>" }
+    },
+    style: {
+      1: { title: "Marta Kostyuk × Wilson", loc: "Wilson Tennis 360",
+        img: "https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=1200&q=80",
+        body: "<p>Wilson 헤드투토 앰버서더. <strong>The Marta Dress</strong> — 웨딩드레스에서 파생, 2024 윔블던 화제 후 박물관 전시. 2026 2nd edition 출시.</p><p class='note'>wilson.com · Vogue 등. 이미지는 스톡.</p>" },
+      2: { title: "Coco Gauff × New Balance × Miu Miu", loc: "New Balance · Miu Miu",
+        img: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=1200&q=80",
+        body: "<p>시그니처 슈즈 Coco CG2. NB×Miu Miu 온코트 키트 콜라보. 라켓은 Head.</p><p class='note'>newbalance.com · miumiu.com</p>" },
+      3: { title: "Alex de Minaur × Wilson", loc: "Wilson Tennis 360",
+        img: "https://images.unsplash.com/photo-1622279457486-62dcc4a431d6?auto=format&fit=crop&w=1200&q=80",
+        body: "<p>2026년 1월 Wilson 360 헤드투토 계약 발표. 의류·슈즈·라켓.</p><p class='note'>Wilson 공식</p>" },
+      4: { title: "Tommy Paul × New Balance · Yonex", loc: "New Balance · Yonex",
+        img: "https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?auto=format&fit=crop&w=1200&q=80",
+        body: "<p>New Balance 의류·슈즈, Yonex VCORE 98 라켓.</p><p class='note'>공개 스폰서십 기준</p>" }
+    },
+    goods: {
+      1: { title: "Wilson Tennis 360 / Marta Dress", loc: "wilson.com",
+        img: "https://images.unsplash.com/photo-1556906781-9a412961d28c?auto=format&fit=crop&w=1200&q=80",
+        body: "<p>Wilson 공식몰·공인 리테일. Marta Dress 등 한정은 조기 소진 가능.</p><p class='note'>판매는 공식 채널에서.</p>" },
+      2: { title: "New Balance Coco CG2 / CT-Rally", loc: "newbalance.com",
+        img: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=1200&q=80",
+        body: "<p>Gauff 시그니처 CG2, CT-Rally 라인. NB 공식몰·매장.</p>" },
+      3: { title: "Wilson Clash 100 v3", loc: "Wilson · 공인 샵",
+        img: "https://images.unsplash.com/photo-1622163642992-385a58b0f4c4?auto=format&fit=crop&w=1200&q=80",
+        body: "<p><strong>Clash 100 v3</strong> — SI3D 레이업, 100 in², 16×19. US Open 등 시즌 에디션 이력. wilson.com</p>" },
+      4: { title: "인스타 커스텀 · @3dzoe_tennis", loc: "Instagram · 스마트스토어 3Dzoe",
+        img: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=1200&q=80",
+        body: "<p>커스텀 오버그립·각인 등. 계정·스토어에서 직접 확인. Courtfolio는 중개하지 않습니다.</p>" }
+    },
+    tournaments: {
+      1: { title: "윔블던", loc: "런던",
+        img: "https://images.unsplash.com/photo-1622279457486-62dcc4a431d6?auto=format&fit=crop&w=1200&q=80",
+        body: "<p>잔디 그랜드슬램. 올화이트. wimbledon.com</p>" },
+      2: { title: "롤랑가로스", loc: "파리",
+        img: "https://images.unsplash.com/photo-1554068865-24cecd4e34b8?auto=format&fit=crop&w=1200&q=80",
+        body: "<p>클레이 그랜드슬램. rolandgarros.com</p>" },
+      3: { title: "호주오픈", loc: "멜버른",
+        img: "https://images.unsplash.com/photo-1534438327276-8c4b97189c76?auto=format&fit=crop&w=1200&q=80",
+        body: "<p>하드 그랜드슬램. ausopen.com</p>" },
+      4: { title: "US 오픈", loc: "뉴욕",
+        img: "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1200&q=80",
+        body: "<p>하드 그랜드슬램. usopen.org</p>" }
+    },
+    play: {
+      1: { title: "그랜드 하얏트 레슨·이용", loc: "서울 남산",
+        img: "https://images.unsplash.com/photo-1554068865-24cecd4e34b8?auto=format&fit=crop&w=1200&q=80",
+        body: "<p>전문 강사 유료 레슨, 라켓 대여. 예약 5일 전~.</p>" },
+      2: { title: "워커힐 테네즈 파크 이용", loc: "서울 워커힐",
+        img: "https://images.unsplash.com/photo-1595435742656-5272d0b3fa82?auto=format&fit=crop&w=1200&q=80",
+        body: "<p>사전 예약, 라켓·화 필수. 주중 8만 / 일·공휴일 10만(기준 4인).</p>" },
+      3: { title: "Thanyapura 코칭·패키지", loc: "푸켓",
+        img: "https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=1200&q=80",
+        body: "<p>프라이빗·그룹 레슨, 성인 3·7·14일 패키지.</p>" },
+      4: { title: "연습 기본 팁", loc: "공통",
+        img: "https://images.unsplash.com/photo-1622279457486-62dcc4a431d6?auto=format&fit=crop&w=1200&q=80",
+        body: "<ul><li>워밍업·쿨다운</li><li>오버그립 주기적 교체</li><li>코트 맞는 슈즈</li><li>수분·그늘 휴식</li><li>예약·인원 규정 확인</li></ul>" }
+    }
+  };
+  const params = new URLSearchParams(location.search);
+  const cat = params.get('cat');
+  const id = params.get('id');
+  const el = document.getElementById('detail');
+  const item = DATA[cat] && DATA[cat][id];
+  if (!item) {
+    el.innerHTML = '<a class="back-link" href="index.html">← HOME</a><p>항목을 찾을 수 없습니다.</p>';
+  } else {
+    const back = cat ? cat + '.html' : 'index.html';
+    el.innerHTML = '<a class="back-link" href="' + back + '">← ' + (cat || 'HOME').toUpperCase() + '</a>' +
+      '<img class="detail-img" src="' + item.img + '" alt="">' +
+      '<div class="detail-loc">' + item.loc + '</div>' +
+      '<h1>' + item.title + '</h1>' +
+      '<div class="detail-body">' + item.body + '</div>';
+  }
+  document.getElementById('langToggle')?.addEventListener('click', function() {
+    this.textContent = this.textContent.trim() === 'EN' ? 'KR' : 'EN';
+  });
+  </script>
+</body>
+</html>
